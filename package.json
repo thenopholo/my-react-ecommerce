@@ -1,7 +1,7 @@
 {
   "name": "my-react-ecommerce",
   "version": "1.0.0",
-  "description": "",
+  "description": "Projeto de Ecommercer feito com React para o projeto final do curso de React da CoderHouse",
   "main": "App.js",
   "scripts": {
     "dev": "vite --port=3001",
@@ -13,7 +13,10 @@
   "license": "ISC",
   "devDependencies": {
     "@vitejs/plugin-react": "^2.1.0",
+    "autoprefixer": "^10.4.19",
+    "postcss": "^8.4.38",
     "prettier": "^2.7.1",
+    "tailwindcss": "^3.4.3",
     "vite": "^3.1.4"
   },
   "dependencies": {
