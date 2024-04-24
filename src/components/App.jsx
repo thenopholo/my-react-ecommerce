@@ -1,14 +1,14 @@
 import React from "react";
-import ReactDOM from 'react-dom/client';
-import Navbar from './Navbar';
-import '../assets/css/index.css';
+import ReactDOM from "react-dom/client";
+import Navbar from "./Navbar";
+import "../assets/css/index.css";
 
 const App = () => {
-    return (
-        <>
-            <Navbar />
-        </>
-    );
+  return (
+    <>
+      <Navbar />
+    </>
+  );
 };
 
 export default App;
