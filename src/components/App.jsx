@@ -1,12 +1,16 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import Navbar from "./Navbar";
 import "../assets/css/index.css";
+import Navbar from "./Navbar";
+import ProductList from "./ProductList";
+import HeroSlider from "./HeroSlider";
 
 const App = () => {
   return (
     <>
       <Navbar />
+      <HeroSlider />
+      <ProductList />
     </>
   );
 };
