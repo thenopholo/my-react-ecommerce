@@ -1,16 +1,24 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import "../assets/css/index.css";
-import Navbar from "./Navbar";
-import ProductList from "./ProductList";
+import Header from "./Header";
 import HeroSlider from "./HeroSlider";
+import HotProductList from "./HotProductList";
+import TechProductList from "./TechProductList";
+import MenClothingProductList from "./MenClothingProductList";
+import WomenClothingProductList from "./WomenClothingProductList";
+import BentoCategoty from "./BentoCategoty";
 
 const App = () => {
   return (
     <>
-      <Navbar />
+      <Header />
       <HeroSlider />
-      <ProductList />
+      <BentoCategoty />
+      <HotProductList />
+      <WomenClothingProductList />
+      <MenClothingProductList />
+      <TechProductList />
     </>
   );
 };

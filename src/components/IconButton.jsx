@@ -1,13 +1,9 @@
-import React from "react";
+import React from 'react';
 
-const IconButton = ({ icon: Icon, className }) => {
-  return (
-    <div
-      className={`flex items-center my-4 mr-2 px-4 bg-white border-2 border-custom-red rounded-full shadow-lg ${className}`}
-    >
-      {Icon && <Icon className="text-custom-orange text-2xl" />}
-    </div>
-  );
-};
+const IconButton = ({ icon: Icon, className, onClick }) => (
+  <button className={`text-gray-500 hover:text-gray-700 ${className}`} onClick={onClick}>
+    <Icon size={24} />
+  </button>
+);
 
 export default IconButton;

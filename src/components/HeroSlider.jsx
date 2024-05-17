@@ -21,7 +21,7 @@ const HeroSlider = () => {
   }, []);
 
   return (
-    <div className="w-full relative">
+    <div className="w-full relative z-1">
       <img src={banners[currentBanner]} alt={`Banner ${currentBanner + 1}`} className="w-full" />
       <div className="absolute top-1/2 left-0 right-0 flex justify-between px-4">
         <button
