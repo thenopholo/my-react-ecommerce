@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import MobileMenu from "./MobileMenu";
 import Cart from "./Cart";
-import Search from "./Search";
 import SignInNav from "./SignInNav";
 import logo from "../assets/svg/supershop_logo.svg";
 import WomanListContainer from "./WomanListContainer";
@@ -52,7 +51,7 @@ export default function Layout() {
               <div className="ml-auto flex items-center">
                 <SignInNav />
                 <SearchBar />
-                <Cart />
+                {/* <Cart /> */}
               </div>
             </div>
             {/* Dynamic Content Rendering Based on Active Tab */}
