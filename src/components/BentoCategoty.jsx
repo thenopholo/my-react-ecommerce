@@ -18,7 +18,7 @@ export default function BentoCategoty() {
               />
 
               <div className="absolute inset-0 flex flex-col items-start justify-end p-6">
-                <span className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white">
+                <span className="mt-1.5 inline-block bg-custom-red px-5 py-3 text-xs font-medium uppercase tracking-wide text-white rounded-full shadow-lg">
                   Roupas Femininas
                 </span>
               </div>
@@ -34,7 +34,7 @@ export default function BentoCategoty() {
               />
 
               <div className="absolute inset-0 flex flex-col items-start justify-end p-6">
-                <span className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white">
+                <span className="mt-1.5 inline-block bg-custom-red px-5 py-3 text-xs font-medium uppercase tracking-wide text-white rounded-full shadow-lg">
                   Roupas Masculinas
                 </span>
               </div>
@@ -49,7 +49,7 @@ export default function BentoCategoty() {
               />
 
               <div className="absolute inset-0 flex flex-col items-start justify-end p-6">
-                <span className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white">
+                <span className="mt-1.5 inline-block bg-custom-red px-5 py-3 text-xs font-medium uppercase tracking-wide text-white rounded-full shadow-lg">
                   Bijuterias
                 </span>
               </div>
@@ -65,7 +65,7 @@ export default function BentoCategoty() {
               />
 
               <div className="absolute inset-0 flex flex-col items-start justify-end p-6">
-                <span className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white">
+                <span className="mt-1.5 inline-block bg-custom-red px-5 py-3 text-xs font-medium uppercase tracking-wide text-white rounded-full shadow-lg">
                   Eletronicos
                 </span>
               </div>
@@ -81,7 +81,7 @@ export default function BentoCategoty() {
               />
 
               <div className="absolute inset-0 flex flex-col items-start justify-end p-6">
-                <span className="mt-1.5 inline-block bg-black px-5 py-3 text-xs font-medium uppercase tracking-wide text-white">
+                <span className="mt-1.5 inline-block bg-custom-red px-5 py-3 text-xs font-medium uppercase tracking-wide text-white rounded-full shadow-lg">
                   Recebidos da Semana
                 </span>
               </div>

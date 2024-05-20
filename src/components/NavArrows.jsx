@@ -9,7 +9,7 @@ const NextArrow = (props) => {
       style={{ ...style, display: "block", right: "10px", zIndex: 1}}
       onClick={onClick}
     >
-      <AiOutlineRightCircle className="text-custom-red bg-white" size={32} />
+      <AiOutlineRightCircle className="text-custom-red bg-white rounded-full shadow-lg" size={32} />
     </div>
   );
 };
@@ -22,7 +22,7 @@ const PrevArrow = (props) => {
       style={{ ...style, display: "block", left: "10px", zIndex: 1 }}
       onClick={onClick}
     >
-      <AiOutlineLeftCircle className="text-custom-red bg-white" size={32} />
+      <AiOutlineLeftCircle className="text-custom-red bg-white rounded-full shadow-lg" size={32} />
     </div>
   );
 };

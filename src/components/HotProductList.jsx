@@ -57,7 +57,6 @@ const HotProductList = () => {
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
-        {" "}
         <Oval
           visible={true}
           height={80}
@@ -67,7 +66,7 @@ const HotProductList = () => {
           secondaryColor="#F6921E"
           strokeWidth={2}
           strokeWidthSecondary={2}
-        />{" "}
+        />
       </div>
     );
   }
@@ -112,44 +111,36 @@ const HotProductList = () => {
     <div className="bg-white">
       <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 sm:py-24 lg:max-w-7xl lg:px-8">
         <h2 className="text-2xl font-bold tracking-tight text-gray-900">
-        🔥 O que está em alta 🔥
+          🔥 O que está em alta 🔥
         </h2>
         <Slider {...settings}>
           {products.map((product) => (
             <div key={product.id} className="group relative p-2">
-              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
+              <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none lg:h-80">
                 <img
                   src={product.imageSrc}
                   alt={product.imageAlt}
                   className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                 />
               </div>
-              <div className="absolute inset-0 flex items-center justify-center gap-2 opacity-0 group-hover:opacity-100">
+              <div className="mt-2 flex justify-center gap-2">
+                <IconButton className="py-2 px-2" icon={AiOutlineShoppingCart} />
                 <IconButton
-                  className={"py-4 px-4"}
-                  icon={AiOutlineShoppingCart}
-                />
-                <IconButton
-                  className={"py-4 px-4"}
+                  className="py-2 px-2"
                   icon={product?.favorite ? AiFillHeart : AiOutlineHeart}
                   onClick={(e) => handleFavorite(product.id, e)}
                 />
-                <IconButton className={"py-4 px-4"} icon={AiOutlineShareAlt} />
+                <IconButton className="py-2 px-2" icon={AiOutlineShareAlt} />
               </div>
               <div className="mt-4 flex justify-between">
                 <div>
                   <h3 className="text-sm text-gray-700">
-                    <span
-                      aria-hidden="true"
-                      className="absolute inset-0"
-                    ></span>
+                    <span aria-hidden="true" className="absolute inset-0"></span>
                     {product.name}
                   </h3>
                   <p className="mt-1 text-sm text-gray-500">{product.color}</p>
                 </div>
-                <p className="text-sm font-medium text-gray-900">
-                  {product.price}
-                </p>
+                <p className="text-sm font-medium text-gray-900">{product.price}</p>
               </div>
             </div>
           ))}
