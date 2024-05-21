@@ -71,8 +71,8 @@ export default function MobileMenu() {
                 role="tabpanel"
                 tabindex="0"
               >
-                <div class="grid grid-cols-2 gap-x-4">
-                  <div class="group relative text-sm">
+                <div className="grid grid-cols-2 gap-x-4">
+                  <div className="group relative text-sm">
                     <div class="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                       <img
                         src="https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg"

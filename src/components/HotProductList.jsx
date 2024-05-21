@@ -1,13 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import Slider from "react-slick";
-import IconButton from "./IconButton";
-import IconButton2 from "./IconButton2";
-import {
-  AiOutlineHeart,
-  AiFillHeart,
-  AiOutlineShareAlt,
-  AiOutlineShoppingCart,
-} from "react-icons/ai";
+import ProductCounter from "./ProductCounter";
 import { NextArrow, PrevArrow } from "./NavArrows";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -22,6 +15,7 @@ const HotProductList = () => {
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState([]);
   const [isCartWindowOpen, setCartWindowOpen] = useState(false);
+  const sliderRef = useRef(null);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products?limit=20")
@@ -34,7 +28,6 @@ const HotProductList = () => {
           imageSrc: product.image,
           imageAlt: product.title,
           price: product.price,
-          color: "Unknown",
           favorite: false,
         }));
         setProducts(formattedProducts);
@@ -45,34 +38,21 @@ const HotProductList = () => {
         setLoading(false);
       });
 
-    // Load cart from localStorage
     const savedCart = JSON.parse(localStorage.getItem("cart")) || [];
     setCart(savedCart);
   }, []);
 
-  const handleFavorite = (id) => {
-    setProducts(
-      products.map((product) => {
-        if (product.id !== id) {
-          return product;
-        }
-        return {
-          ...product,
-          favorite: !product.favorite,
-        };
-      })
-    );
-  };
-
-  const handleAddToCart = (product) => {
+  const handleAddToCart = (product, quantity) => {
     const existingProduct = cart.find((item) => item.id === product.id);
     let newCart;
     if (existingProduct) {
       newCart = cart.map((item) =>
-        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        item.id === product.id
+          ? { ...item, quantity: item.quantity + quantity }
+          : item
       );
     } else {
-      newCart = [...cart, { ...product, quantity: 1 }];
+      newCart = [...cart, { ...product, quantity }];
     }
     setCart(newCart);
     localStorage.setItem("cart", JSON.stringify(newCart));
@@ -116,6 +96,7 @@ const HotProductList = () => {
     slidesToScroll: 4,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
+    draggable: false, // Desabilitar arrastar
     responsive: [
       {
         breakpoint: 1024,
@@ -124,6 +105,7 @@ const HotProductList = () => {
           slidesToScroll: 1,
           infinite: true,
           dots: true,
+          draggable: false, // Desabilitar arrastar
         },
       },
       {
@@ -132,6 +114,7 @@ const HotProductList = () => {
           slidesToShow: 2,
           slidesToScroll: 1,
           initialSlide: 2,
+          draggable: false, // Desabilitar arrastar
         },
       },
       {
@@ -139,6 +122,7 @@ const HotProductList = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          draggable: false, // Desabilitar arrastar
         },
       },
     ],
@@ -167,31 +151,21 @@ const HotProductList = () => {
                   className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                 />
               </div>
-              <div className="mt-4 flex justify-between">
+              <div className="mt-8 mr-4 px-4 flex justify-between h-16 bg-red rounded-lg">
                 <div>
                   <h3 className="text-sm text-gray-700">
-                    <span
-                      aria-hidden="true"
-                      className="absolute inset-0"
-                    ></span>
+                    <span aria-hidden="true" className="absolute inset-0"></span>
                     {product.name}
                   </h3>
-                  <p className="mt-1 text-sm text-gray-500">{product.color}</p>
                 </div>
                 <p className="text-sm font-medium text-gray-900">
                   ${product.price}
                 </p>
-              </div>{" "}
+              </div>
               <div className="mt-2 flex justify-center gap-2">
-                <IconButton
-                  icon={AiOutlineShoppingCart}
-                  onClick={() => handleAddToCart(product)}
+                <ProductCounter
+                  onAddToCart={(quantity) => handleAddToCart(product, quantity)}
                 />
-                <IconButton
-                  icon={product?.favorite ? AiFillHeart : AiOutlineHeart}
-                  onClick={() => handleFavorite(product.id)}
-                />
-                <IconButton icon={AiOutlineShareAlt} />
               </div>
             </div>
           ))}

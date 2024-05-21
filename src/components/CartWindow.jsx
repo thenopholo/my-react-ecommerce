@@ -1,11 +1,14 @@
 import React from "react";
+import { AiOutlineClose } from "react-icons/ai";
 
 const CartWindow = ({ cart, onClose }) => {
   const total = cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
 
   return (
     <div className="fixed top-0 right-0 w-1/3 h-full bg-white shadow-lg p-4 z-50">
-      <button onClick={onClose} className="text-gray-700">Fechar</button>
+      <button onClick={onClose} className="text-gray-700">
+        <AiOutlineClose />
+      </button>
       <h2 className="text-xl font-bold">Seu Carrinho</h2>
       {cart.length === 0 ? (
         <p>Seu carrinho está vazio.</p>
