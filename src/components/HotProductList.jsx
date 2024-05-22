@@ -154,7 +154,10 @@ const HotProductList = () => {
               <div className="mt-8 mr-4 px-4 flex justify-between h-16 bg-red rounded-lg">
                 <div>
                   <h3 className="text-sm text-gray-700">
-                    <span aria-hidden="true" className="absolute inset-0"></span>
+                    <span
+                      aria-hidden="true"
+                      className="absolute inset-0"
+                    ></span>
                     {product.name}
                   </h3>
                 </div>

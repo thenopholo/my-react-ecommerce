@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import MobileMenu from "./MobileMenu";
 import SignInNav from "./SignInNav";
 import logo from "../assets/svg/supershop_logo.svg";
@@ -6,13 +6,34 @@ import WomanListContainer from "./WomanListContainer";
 import MenListContainer from "./MenListContainer";
 import SearchBar from "./SearchBar";
 
-export default function Layout() {
+export default function Header () {
   const [activeTab, setActiveTab] = useState(null);
+  const headerRef = useRef(null);
+
+  const handleOutsideClick = () => {
+    setActiveTab(null);
+  };
+
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (headerRef.current && !headerRef.current.contains(event.target)) {
+        handleOutsideClick();
+      }
+    }
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [headerRef]);
+
+  const toggleTab = (tab) => {
+    setActiveTab((prevTab) => (prevTab === tab ? null : tab));
+  };
 
   return (
     <div className="bg-white">
       <MobileMenu />
-      <header className="relative bg-white hero-section">
+      <header ref={headerRef} className="fixed top-0 left-0 w-full bg-white z-50 hero-section"> {/* Adicionado classes para fixar o header */}
         <p className="flex h-10 items-center justify-center bg-custom-red px-4 text-sm font-medium text-white sm:px-6 lg:px-8">
           FRETE GRÁTIS EM COMPRAS À PARTIR DE R$100
         </p>
@@ -38,7 +59,7 @@ export default function Layout() {
                             : "border-transparent text-gray-700 hover:text-gray-800"
                         }`}
                         aria-expanded={activeTab === tab}
-                        onClick={() => setActiveTab(tab)}
+                        onClick={() => toggleTab(tab)}
                       >
                         {tab}
                       </button>
