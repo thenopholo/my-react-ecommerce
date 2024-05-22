@@ -17,7 +17,7 @@ const ProductCounter = ({ onAddToCart }) => {
 
   return (
     <div className="flex items-center justify-center gap-2">
-      <div className="flex items-center justify-center gap-2 bg-white rounded-full border border-gray-600">
+      <div className="flex items-center justify-center gap-2 bg-white rounded-full border border-grey-600">
         <button
           className="group cursor-pointer outline-none hover:rotate-180 duration-300"
           title="Subtract"

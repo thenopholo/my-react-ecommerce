@@ -2,24 +2,17 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import "../assets/css/index.css";
 import Header from "./Header";
-import HeroSlider from "./HeroSlider";
-import HotProductList from "./HotProductList";
-import TechProductList from "./TechProductList";
-import MenClothingProductList from "./MenClothingProductList";
-import WomenClothingProductList from "./WomenClothingProductList";
-import BentoCategoty from "./BentoCategoty";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import HomePage from "../view/HomePage";
 
 const App = () => {
   return (
-    <>
+    <BrowserRouter>
       <Header />
-      <HeroSlider />
-      <BentoCategoty />
-      <HotProductList />
-      <WomenClothingProductList />
-      <MenClothingProductList />
-      <TechProductList />
-    </>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
