@@ -1,12 +1,12 @@
-import React, { useEffect, useState, useRef } from "react";
-import Slider from "react-slick";
-import ProductCounter from "./ProductCounter";
-import { NextArrow, PrevArrow } from "./NavArrows";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React, { useEffect, useState } from "react";
 import { Oval } from "react-loader-spinner";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import { NextArrow, PrevArrow } from "./NavArrows";
+import ProductCounter from "./ProductCounter";
 import Cart from "./Cart";
 import CartWindow from "./CartWindow";
 
@@ -15,7 +15,6 @@ const HotProductList = () => {
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState([]);
   const [isCartWindowOpen, setCartWindowOpen] = useState(false);
-  const sliderRef = useRef(null);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products?limit=20")
@@ -96,7 +95,6 @@ const HotProductList = () => {
     slidesToScroll: 4,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
-    draggable: false, // Desabilitar arrastar
     responsive: [
       {
         breakpoint: 1024,
@@ -105,7 +103,6 @@ const HotProductList = () => {
           slidesToScroll: 1,
           infinite: true,
           dots: true,
-          draggable: false, // Desabilitar arrastar
         },
       },
       {
@@ -114,7 +111,6 @@ const HotProductList = () => {
           slidesToShow: 2,
           slidesToScroll: 1,
           initialSlide: 2,
-          draggable: false, // Desabilitar arrastar
         },
       },
       {
@@ -122,7 +118,6 @@ const HotProductList = () => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
-          draggable: false, // Desabilitar arrastar
         },
       },
     ],
@@ -143,7 +138,7 @@ const HotProductList = () => {
         </h2>
         <Slider {...settings}>
           {products.map((product) => (
-            <div key={product.id} className="group relative p-2">
+            <div key={product.id} className="p-2">
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none lg:h-80">
                 <img
                   src={product.imageSrc}
@@ -151,21 +146,15 @@ const HotProductList = () => {
                   className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                 />
               </div>
-              <div className="mt-8 mr-4 px-4 flex justify-between h-16 bg-red rounded-lg">
+              <div className="mt-4 px-4 flex justify-between h-16 bg-red rounded-lg">
                 <div>
-                  <h3 className="text-sm text-gray-700">
-                    <span
-                      aria-hidden="true"
-                      className="absolute inset-0"
-                    ></span>
-                    {product.name}
-                  </h3>
+                  <h3 className="text-sm text-gray-700">{product.name}</h3>
                 </div>
                 <p className="text-sm font-medium text-gray-900">
                   ${product.price}
                 </p>
               </div>
-              <div className="mt-2 flex justify-center gap-2">
+              <div className="mt-2 flex justify-center gap-2" onClick={(e) => e.stopPropagation()}>
                 <ProductCounter
                   onAddToCart={(quantity) => handleAddToCart(product, quantity)}
                 />
