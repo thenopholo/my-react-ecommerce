@@ -1,18 +1,12 @@
-import React, { useEffect, useState, useRef } from "react";
-import Slider from "react-slick";
-import IconButton from "./IconButton";
-import {
-  AiOutlineHeart,
-  AiFillHeart,
-  AiOutlineShareAlt,
-  AiOutlineShoppingCart,
-} from "react-icons/ai";
-import { NextArrow, PrevArrow } from "./NavArrows";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
+import React, { useEffect, useState } from "react";
 import { Oval } from "react-loader-spinner";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+import Slider from "react-slick";
+import { NextArrow, PrevArrow } from "./NavArrows";
+import ProductCounter from "./ProductCounter";
 import Cart from "./Cart";
 import CartWindow from "./CartWindow";
 
@@ -21,7 +15,6 @@ const HotProductList = () => {
   const [loading, setLoading] = useState(true);
   const [cart, setCart] = useState([]);
   const [isCartWindowOpen, setCartWindowOpen] = useState(false);
-  const sliderRef = useRef(null);
 
   useEffect(() => {
     fetch("https://fakestoreapi.com/products/category/women's%20clothing?limit=20")
@@ -34,7 +27,6 @@ const HotProductList = () => {
           imageSrc: product.image,
           imageAlt: product.title,
           price: product.price,
-          color: "Unknown",
           favorite: false,
         }));
         setProducts(formattedProducts);
@@ -49,29 +41,17 @@ const HotProductList = () => {
     setCart(savedCart);
   }, []);
 
-  const handleFavorite = (id) => {
-    setProducts(
-      products.map((product) => {
-        if (product.id !== id) {
-          return product;
-        }
-        return {
-          ...product,
-          favorite: !product.favorite,
-        };
-      })
-    );
-  };
-
-  const handleAddToCart = (product) => {
+  const handleAddToCart = (product, quantity) => {
     const existingProduct = cart.find((item) => item.id === product.id);
     let newCart;
     if (existingProduct) {
       newCart = cart.map((item) =>
-        item.id === product.id ? { ...item, quantity: item.quantity + 1 } : item
+        item.id === product.id
+          ? { ...item, quantity: item.quantity + quantity }
+          : item
       );
     } else {
-      newCart = [...cart, { ...product, quantity: 1 }];
+      newCart = [...cart, { ...product, quantity }];
     }
     setCart(newCart);
     localStorage.setItem("cart", JSON.stringify(newCart));
@@ -158,7 +138,7 @@ const HotProductList = () => {
         </h2>
         <Slider {...settings}>
           {products.map((product) => (
-            <div key={product.id} className="group relative p-2">
+            <div key={product.id} className="p-2">
               <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none lg:h-80">
                 <img
                   src={product.imageSrc}
@@ -166,31 +146,18 @@ const HotProductList = () => {
                   className="h-full w-full object-cover object-center lg:h-full lg:w-full"
                 />
               </div>
-              <div className="mt-4 flex justify-between">
+              <div className="mt-4 px-4 flex justify-between h-16 bg-red rounded-lg">
                 <div>
-                  <h3 className="text-sm text-gray-700">
-                    <span
-                      aria-hidden="true"
-                      className="absolute inset-0"
-                    ></span>
-                    {product.name}
-                  </h3>
-                  <p className="mt-1 text-sm text-gray-500">{product.color}</p>
+                  <h3 className="text-sm text-gray-700">{product.name}</h3>
                 </div>
                 <p className="text-sm font-medium text-gray-900">
                   ${product.price}
                 </p>
               </div>
-              <div ref={sliderRef} className="mt-2 flex justify-center gap-2">
-                <IconButton
-                  icon={AiOutlineShoppingCart}
-                  onClick={() => handleAddToCart(product)}
+              <div className="mt-2 flex justify-center gap-2" onClick={(e) => e.stopPropagation()}>
+                <ProductCounter
+                  onAddToCart={(quantity) => handleAddToCart(product, quantity)}
                 />
-                <IconButton
-                  icon={product?.favorite ? AiFillHeart : AiOutlineHeart}
-                  onClick={() => handleFavorite(product.id)}
-                />
-                <IconButton icon={AiOutlineShareAlt} />
               </div>
             </div>
           ))}
