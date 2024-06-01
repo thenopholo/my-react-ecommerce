@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import EletronicImg from "../assets/img/pexels-cottonbro-3584998.jpg";
 import BijuteriasImg from "../assets/img/pexels-the-glorious-studio-3584518-5442465.jpg";
 import NovosImg from "../assets/img/pexels-karolina-grabowska-4210860.jpg";
@@ -10,7 +11,7 @@ export default function BentoCategoty() {
       <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
         <ul className="mt-8 grid grid-cols-1 gap-4 lg:grid-cols-4 grid-rows-2">
           <li>
-            <a href="#" className="group relative block">
+            <Link to="/category/women's%20clothing" className="group relative block">
               <img
                 src={FemininoImg}
                 alt=""
@@ -22,11 +23,11 @@ export default function BentoCategoty() {
                   Roupas Femininas
                 </span>
               </div>
-            </a>
+            </Link>
           </li>
 
           <li>
-            <a href="#" className="group relative block">
+            <Link to="/category/men's%20clothing" className="group relative block">
               <img
                 src={MasculinoImg}
                 alt=""
@@ -38,10 +39,10 @@ export default function BentoCategoty() {
                   Roupas Masculinas
                 </span>
               </div>
-            </a>
+            </Link>
           </li>
           <li className="lg:col-span-1 lg:rows-span-2 lg:row-start-1 lg:col-start-4">
-            <a href="#" className="group relative block">
+            <Link to="/category/jewelery" className="group relative block">
               <img
                 src={BijuteriasImg}
                 alt=""
@@ -53,11 +54,11 @@ export default function BentoCategoty() {
                   Bijuterias
                 </span>
               </div>
-            </a>
+            </Link>
           </li>
 
           <li className="lg:col-span-1 lg:rows-span-2 lg:row-start-2 lg:col-start-4">
-            <a href="#" className="group relative block">
+            <Link to="/category/electronics" className="group relative block">
               <img
                 src={EletronicImg}
                 alt=""
@@ -69,7 +70,7 @@ export default function BentoCategoty() {
                   Eletronicos
                 </span>
               </div>
-            </a>
+            </Link>
           </li>
 
           <li className="lg:col-span-2 lg:col-start-2 lg:row-span-2 lg:row-start-1">

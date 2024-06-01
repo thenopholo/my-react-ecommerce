@@ -1,5 +1,4 @@
 import React from "react";
-
 import "../assets/css/index.css";
 import HeroSlider from "../components/HeroSlider";
 import HotProductList from "../components/HotProductList";

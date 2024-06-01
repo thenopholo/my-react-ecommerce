@@ -6,8 +6,33 @@
 @tailwind components;
 @tailwind utilities;
 
+/* styles.css */
+.custom-checkbox {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border: 2px solid #ccc;
+  border-radius: 0.25rem;
+  background-color: white;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+}
 
-/* .slick-prev::before,
-.slick-next::before {
-  content: '' !important;
-} */
+.custom-checkbox:checked {
+  background-color: #ff0000; /* Vermelho */
+  border-color: #ff0000;
+}
+
+.custom-checkbox:checked::after {
+  content: '';
+  position: absolute;
+  top: 0.25rem;
+  left: 0.25rem;
+  width: 0.25rem;
+  height: 0.5rem;
+  border: solid white;
+  border-width: 0 0.125rem 0.125rem 0;
+  transform: rotate(45deg);
+}

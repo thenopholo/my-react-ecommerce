@@ -1,162 +1,93 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import EletronicImg from "../assets/img/pexels-cottonbro-3584998.jpg";
+import BijuteriasImg from "../assets/img/pexels-the-glorious-studio-3584518-5442465.jpg";
+import NovosImg from "../assets/img/pexels-karolina-grabowska-4210860.jpg";
+import FemininoImg from "../assets/img/pexels-ron-lach-8307704.jpg";
 
 export default function WomanListContainer() {
   return (
-    <div class="relative bg-white">
-      <div class="mx-auto max-w-7xl px-8">
-        <div class="grid grid-cols-2 gap-x-8 gap-y-10 py-16">
-          <div class="col-start-2 grid grid-cols-2 gap-x-8">
-            <div class="group relative text-base sm:text-sm">
-              <div class="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
+    <div className="relative bg-white">
+      <div className="mx-auto max-w-7xl px-8">
+        <div className="grid grid-cols-2 gap-x-8 gap-y-10 py-16">
+          <div className="col-start-1 grid grid-cols-2 gap-x-8">
+            <div className="group relative text-base sm:text-sm">
+              <div className="w-[250pxpx] h-[250px] aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                 <img
-                  src="https://tailwindui.com/img/ecommerce-images/mega-menu-category-01.jpg"
+                  src={FemininoImg}
                   alt="Drawstring top with elastic loop closure and textured interior padding."
-                  class="object-cover object-center"
+                  className="object-cover object-center w-[350px] h-[250px]"
                 />
               </div>
-              <a href="#" class="mt-6 block font-medium text-gray-900">
-                <span class="absolute inset-0 z-10" aria-hidden="true"></span>
-                Recém Chegados
-              </a>
-              <p aria-hidden="true" class="mt-1">
-                Compre agora
+              <Link to="/category/women's%20clothing" className="mt-6 block font-medium text-gray-900">
+                <span
+                  className="absolute inset-0 z-10"
+                  aria-hidden="true"
+                ></span>
+                Roupas Feminias
+              </Link>
+              <p aria-hidden="true" className="mt-1">
+                Veja todos os looks!
               </p>
             </div>
-            <div class="group relative text-base sm:text-sm">
-              <div class="aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
+            <div className="group relative text-base sm:text-sm">
+              <div className="w-[250pxpx] h-[250px] aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
                 <img
-                  src="https://tailwindui.com/img/ecommerce-images/mega-menu-category-02.jpg"
+                  src={BijuteriasImg}
                   alt="Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt."
-                  class="object-cover object-center"
+                  className="object-cover object-center w-[350px] h-[250px]"
                 />
               </div>
-              <a href="#" class="mt-6 block font-medium text-gray-900">
-                <span class="absolute inset-0 z-10" aria-hidden="true"></span>
-                Camisetas Básicas
-              </a>
-              <p aria-hidden="true" class="mt-1">
-                Compre Agora
+              <Link to="/category/jewelery" className="mt-6 block font-medium text-gray-900">
+                <span
+                  className="absolute inset-0 z-10"
+                  aria-hidden="true"
+                ></span>
+                Bijuterias
+              </Link>
+              <p aria-hidden="true" className="mt-1">
+                Veja todos as Bijus!
               </p>
             </div>
           </div>
-          <div class="row-start-1 grid grid-cols-3 gap-x-8 gap-y-10 text-sm">
-            <div>
-              <p id="Clothing-heading" class="font-medium text-gray-900">
-                Roupas
+          <div className="col-start- grid grid-cols-2 gap-x-8">
+            <div className="group relative text-base sm:text-sm">
+              <div className="w-[250pxpx] h-[250px] aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
+                <img
+                  src={NovosImg}
+                  alt="Drawstring top with elastic loop closure and textured interior padding."
+                  className="object-cover object-center w-[350px] h-[250px]"
+                />
+              </div>
+              <Link to="/category" className="mt-6 block font-medium text-gray-900">
+                <span
+                  className="absolute inset-0 z-10"
+                  aria-hidden="true"
+                ></span>
+                Jeans
+              </Link>
+              <p aria-hidden="true" className="mt-1">
+                Veja tudo!
               </p>
-              <ul
-                role="list"
-                aria-labelledby="Clothing-heading"
-                class="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
-              >
-                <li class="flex">
-                  <a href="#" class="hover:text-gray-800">
-                    Tops
-                  </a>
-                </li>
-                <li class="flex">
-                  <a href="#" class="hover:text-gray-800">
-                    Calças
-                  </a>
-                </li>
-                <li class="flex">
-                  <a href="#" class="hover:text-gray-800">
-                    Sweaters
-                  </a>
-                </li>
-                <li class="flex">
-                  <a href="#" class="hover:text-gray-800">
-                    Camisetas
-                  </a>
-                </li>
-                <li class="flex">
-                  <a href="#" class="hover:text-gray-800">
-                    Jaquetas
-                  </a>
-                </li>
-                <li class="flex">
-                  <a href="#" class="hover:text-gray-800">
-                    Esportiva
-                  </a>
-                </li>
-                <li class="flex">
-                  <a href="#" class="hover:text-gray-800">
-                    Veja todas!
-                  </a>
-                </li>
-              </ul>
             </div>
-            <div>
-              <p id="Accessories-heading" class="font-medium text-gray-900">
-                Acessórios
+            <div className="group relative text-base sm:text-sm">
+              <div className="w-[250pxpx] h-[250px] aspect-h-1 aspect-w-1 overflow-hidden rounded-lg bg-gray-100 group-hover:opacity-75">
+                <img
+                  src={EletronicImg}
+                  alt="Three shirts in gray, white, and blue arranged on table with same line drawing of hands and shapes overlapping on front of shirt."
+                  className="object-cover object-center w-[350px] h-[250px]"
+                />
+              </div>
+              <Link to="/category/electronics" className="mt-6 block font-medium text-gray-900">
+                <span
+                  className="absolute inset-0 z-10"
+                  aria-hidden="true"
+                ></span>
+                Eletônicos
+              </Link>
+              <p aria-hidden="true" className="mt-1">
+                Veja tudo!
               </p>
-              <ul
-                role="list"
-                aria-labelledby="Accessories-heading"
-                class="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
-              >
-                <li class="flex">
-                  <a href="#" class="hover:text-gray-800">
-                    Relógios
-                  </a>
-                </li>
-                <li class="flex">
-                  <a href="#" class="hover:text-gray-800">
-                    Carteiras
-                  </a>
-                </li>
-                <li class="flex">
-                  <a href="#" class="hover:text-gray-800">
-                    Bolsas
-                  </a>
-                </li>
-                <li class="flex">
-                  <a href="#" class="hover:text-gray-800">
-                    Oculós de Sol
-                  </a>
-                </li>
-                <li class="flex">
-                  <a href="#" class="hover:text-gray-800">
-                    Boné
-                  </a>
-                </li>
-                <li class="flex">
-                  <a href="#" class="hover:text-gray-800">
-                    Cintos
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div>
-              <p id="Brands-heading" class="font-medium text-gray-900">
-                Marcas
-              </p>
-              <ul
-                role="list"
-                aria-labelledby="Brands-heading"
-                class="mt-6 space-y-6 sm:mt-4 sm:space-y-4"
-              >
-                <li class="flex">
-                  <a href="#" class="hover:text-gray-800">
-                    Nike
-                  </a>
-                </li>
-                <li class="flex">
-                  <a href="#" class="hover:text-gray-800">
-                    Adidas
-                  </a>
-                </li>
-                <li class="flex">
-                  <a href="#" class="hover:text-gray-800">
-                    The North Face
-                  </a>
-                </li>
-                <li class="flex">
-                  <a href="#" class="hover:text-gray-800">
-                    Under Amour
-                  </a>
-                </li>
-              </ul>
             </div>
           </div>
         </div>

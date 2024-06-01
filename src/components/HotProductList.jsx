@@ -17,6 +17,7 @@ const HotProductList = () => {
   const [isCartWindowOpen, setCartWindowOpen] = useState(false);
 
   useEffect(() => {
+    setLoading(true);
     fetch("https://fakestoreapi.com/products?limit=20")
       .then((response) => response.json())
       .then((data) => {

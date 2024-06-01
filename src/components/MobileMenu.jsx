@@ -1,18 +1,20 @@
-import React from "react";
+import React from 'react';
+import { Link } from 'react-router-dom'
 
-export default function MobileMenu() {
-  const [tab, setTab] = React.useState("mulher");
+
+export default function MobileMenu({ onClose }) {
+  const [tab, setTab] = React.useState('mulher');
 
   return (
     <div className="relative z-40 lg:hidden" role="dialog" aria-modal="true">
-      <div className="fixed inset-0 bg-black bg-opacity-25"></div>
+      <div className="fixed inset-0 bg-black bg-opacity-25" onClick={onClose}></div>
       <div className="fixed inset-0 z-40 flex">
         <div className="relative flex w-full max-w-xs flex-col overflow-y-auto bg-white pb-12 shadow-xl">
           <div className="flex px-4 pb-2 pt-5">
             <button
               type="button"
               className="relative -m-2 inline-flex items-center justify-center rounded-md p-2 text-gray-400"
-              onClick={() => console.log("Menu should close here.")}
+              onClick={onClose}
             >
               <span className="sr-only">Close menu</span>
               <svg
@@ -31,6 +33,18 @@ export default function MobileMenu() {
               </svg>
             </button>
           </div>
+          <div className="space-y-6 border-t border-gray-200 px-4 py-6">
+            <div className="flow-root">
+              <Link to="/loginpage" className="-m-2 block p-2 font-medium text-gray-900">
+                Entrar na sua conta
+              </Link>
+            </div>
+            <div className="flow-root">
+              <Link to="/singuppage" className="-m-2 block p-2 font-medium text-gray-900">
+                Criar uma conta
+              </Link>
+            </div>
+          </div>
           <div className="mt-2">
             <div className="border-b border-gray-200">
               <div
@@ -41,35 +55,35 @@ export default function MobileMenu() {
                 <button
                   id="tabs-1-tab-1"
                   className={`flex-1 whitespace-nowrap border-b-2 px-1 py-4 text-base font-medium ${
-                    tab === "mulher"
-                      ? "border-custom-red text-custom-orange"
-                      : "border-transparent text-gray-900"
+                    tab === 'mulher'
+                      ? 'border-custom-red text-custom-orange'
+                      : 'border-transparent text-gray-900'
                   }`}
                   aria-controls="tabs-1-panel-1"
                   role="tab"
                   type="button"
-                  onClick={() => setTab("mulher")}
+                  onClick={() => setTab('mulher')}
                 >
                   Mulher
                 </button>
                 <button
                   id="tabs-1-tab-2"
                   className={`flex-1 whitespace-nowrap border-b-2 px-1 py-4 text-base font-medium ${
-                    tab === "homem"
-                      ? "border-custom-red text-custom-orange"
-                      : "border-transparent text-gray-900"
+                    tab === 'homem'
+                      ? 'border-custom-red text-custom-orange'
+                      : 'border-transparent text-gray-900'
                   }`}
                   aria-controls="tabs-1-panel-2"
                   role="tab"
                   type="button"
-                  onClick={() => setTab("homem")}
+                  onClick={() => setTab('homem')}
                 >
                   Homem
                 </button>
               </div>
             </div>
             {/* 'Women' tab panel, show/hide based on tab state. */}
-            {tab === "mulher" && (
+            {tab === 'mulher' && (
               <div
                 id="tabs-1-panel-1"
                 className="space-y-10 px-4 pb-8 pt-10"
@@ -256,7 +270,7 @@ export default function MobileMenu() {
               </div>
             )}
             {/* 'Men' tab panel, show/hide based on tab state. */}
-            {tab === "homem" && (
+            {tab === 'homem' && (
               <div
                 id="tabs-1-panel-2"
                 className="space-y-10 px-4 pb-8 pt-10"
@@ -428,43 +442,7 @@ export default function MobileMenu() {
               </div>
             )}
           </div>
-          <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-            <div className="flow-root">
-              <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
-                Company
-              </a>
-            </div>
-            <div className="flow-root">
-              <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
-                Stores
-              </a>
-            </div>
-          </div>
-          <div className="space-y-6 border-t border-gray-200 px-4 py-6">
-            <div className="flow-root">
-              <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
-                Sign in
-              </a>
-            </div>
-            <div className="flow-root">
-              <a href="#" className="-m-2 block p-2 font-medium text-gray-900">
-                Create account
-              </a>
-            </div>
-          </div>
-          <div className="border-t border-gray-200 px-4 py-6">
-            <a href="#" className="-m-2 flex items-center p-2">
-              <img
-                src="https://tailwindui.com/img/flags/flag-canada.svg"
-                alt=""
-                className="block h-auto w-5 flex-shrink-0"
-              />
-              <span className="ml-3 block text-base font-medium text-gray-900">
-                CAD
-              </span>
-              <span className="sr-only">, change currency</span>
-            </a>
-          </div>
+
         </div>
       </div>
     </div>
